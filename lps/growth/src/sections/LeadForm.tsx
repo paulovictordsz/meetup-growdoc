@@ -126,7 +126,7 @@ export default function LeadForm() {
 
     const webhookParams = new URLSearchParams({
       name, email: "", phone: cleanPhone,
-      is_vascular: isVascular, professional_stage: profStage,
+      '01': isVascular, '02': profStage,
       page_url: pageURL,
       ...Object.fromEntries(Object.entries(utm).filter(([, v]) => v)),
     });
