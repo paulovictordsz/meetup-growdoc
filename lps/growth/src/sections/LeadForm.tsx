@@ -87,13 +87,6 @@ function validatePhone(value: string): boolean {
   return n.length === 10 || n.length === 11;
 }
 
-// --- Trust bullets ---
-const trustPoints = [
-  "Especialistas em marketing para médicos",
-  "Metodologia testada com 300+ clínicas",
-  "Resultado em dias, não meses",
-  "Sem contrato de fidelidade",
-];
 
 export default function LeadForm() {
   const [name, setName]                     = useState("");
@@ -177,80 +170,55 @@ export default function LeadForm() {
   return (
     <section
       id="formulario"
-      className="relative w-full overflow-hidden px-6 py-20 md:py-28"
+      className="relative w-full overflow-hidden px-6 pb-20 pt-10 md:pb-28 md:pt-12"
       style={{ backgroundColor: BG }}
     >
       {/* Glow */}
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
         <div
-          className="w-[800px] h-[400px] rounded-full animate-glow-pulse"
-          style={{ background: `radial-gradient(ellipse at center, ${ACCENT}20 0%, transparent 65%)` }}
+          className="w-[800px] h-[500px] rounded-full animate-glow-pulse"
+          style={{ background: `radial-gradient(ellipse at center, ${ACCENT}15 0%, transparent 65%)` }}
         />
       </div>
 
-      {/* Border top */}
-      <div
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-48 h-px"
-        style={{ background: `linear-gradient(90deg, transparent, ${ACCENT}, transparent)` }}
-      />
+      <div className="relative z-10 max-w-lg mx-auto">
 
-      <div className="relative z-10 max-w-5xl mx-auto">
-        <div className="flex flex-col lg:flex-row gap-14 lg:gap-20 items-start">
+        {/* Heading */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="flex flex-col gap-2 text-center mb-8"
+        >
+          <p className="text-xs font-bold uppercase tracking-[0.2em]" style={{ color: ACCENT }}>
+            Próximo passo
+          </p>
+          <h2 className="text-2xl md:text-3xl font-black text-white leading-tight tracking-tight">
+            Pronto para transformar{" "}
+            <span style={{ color: ACCENT }}>sua prática médica?</span>
+          </h2>
+          <p className="text-white/40 text-sm leading-relaxed">
+            Preencha o formulário e nosso time entra em contato com você.
+          </p>
+        </motion.div>
 
-          {/* Coluna esquerda — copy */}
-          <motion.div
-            initial={{ opacity: 0, x: -24 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="flex flex-col gap-8 lg:w-[420px] shrink-0"
+        {/* Formulário */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+        >
+          <div
+            className="rounded-2xl p-6 md:p-8"
+            style={{
+              backgroundColor: "#1a1c1c",
+              border: `1px solid ${ACCENT}20`,
+              boxShadow: `0 0 60px ${ACCENT}0a, 0 24px 48px rgba(0,0,0,0.4)`,
+            }}
           >
-            <div className="flex flex-col gap-4">
-              <p className="text-xs font-bold uppercase tracking-[0.2em]" style={{ color: ACCENT }}>
-                Próximo passo
-              </p>
-              <h2 className="text-4xl md:text-5xl font-black text-white leading-tight tracking-tight">
-                Pronto para transformar{" "}
-                <span style={{ color: ACCENT }}>sua prática médica?</span>
-              </h2>
-              <p className="text-white/50 text-base leading-relaxed">
-                Preencha o formulário e nosso time de especialistas em
-                marketing médico entra em contato com você.
-              </p>
-            </div>
-
-            <ul className="flex flex-col gap-3">
-              {trustPoints.map((point) => (
-                <li key={point} className="flex items-center gap-3">
-                  <span
-                    className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full"
-                    style={{ backgroundColor: `${ACCENT}20`, border: `1px solid ${ACCENT}44` }}
-                  >
-                    <Icon icon="solar:check-circle-bold" width={12} style={{ color: ACCENT }} />
-                  </span>
-                  <span className="text-white/60 text-sm">{point}</span>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-
-          {/* Coluna direita — formulário */}
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.15 }}
-            className="flex-1 w-full"
-          >
-            <div
-              className="rounded-2xl p-6 md:p-8"
-              style={{
-                backgroundColor: "#1a1c1c",
-                border: `1px solid ${ACCENT}20`,
-                boxShadow: `0 0 60px ${ACCENT}0a, 0 24px 48px rgba(0,0,0,0.4)`,
-              }}
-            >
-              <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-5">
+            <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-5">
 
                 {/* Nome */}
                 <Input
@@ -349,7 +317,6 @@ export default function LeadForm() {
             </div>
           </motion.div>
 
-        </div>
       </div>
     </section>
   );
