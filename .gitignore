@@ -5,6 +5,10 @@ lps/*/node_modules/
 lps/*/dist/
 site/
 
+# Cloudflare / Wrangler
+.wrangler/
+lps/*/.wrangler/
+
 # macOS
 .DS_Store
 
