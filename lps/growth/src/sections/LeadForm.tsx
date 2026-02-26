@@ -268,8 +268,8 @@ export default function LeadForm() {
                   classNames={selectStyles}
                   listboxProps={{ itemClasses: selectItemStyles }}
                 >
-                  <SelectItem key="sim">Sim, tenho especialidade</SelectItem>
-                  <SelectItem key="nao">Não, sou clínico geral</SelectItem>
+                  <SelectItem key="Sim">Sim, tenho especialidade</SelectItem>
+                  <SelectItem key="Não">Não, sou clínico geral</SelectItem>
                 </Select>
 
                 {/* Estágio profissional */}
@@ -287,10 +287,10 @@ export default function LeadForm() {
                   classNames={selectStyles}
                   listboxProps={{ itemClasses: selectItemStyles }}
                 >
-                  <SelectItem key="iniciando">Estou iniciando minha carreira</SelectItem>
-                  <SelectItem key="crescendo">Tenho consultório e quero crescer</SelectItem>
-                  <SelectItem key="expandindo">Quero abrir mais unidades</SelectItem>
-                  <SelectItem key="consolidado">Clínica consolidada, quero escalar</SelectItem>
+                  <SelectItem key="Estou iniciando minha carreira">Estou iniciando minha carreira</SelectItem>
+                  <SelectItem key="Tenho consultório e quero crescer">Tenho consultório e quero crescer</SelectItem>
+                  <SelectItem key="Quero abrir mais unidades">Quero abrir mais unidades</SelectItem>
+                  <SelectItem key="Clínica consolidada, quero escalar">Clínica consolidada, quero escalar</SelectItem>
                 </Select>
 
                 {/* Submit */}
