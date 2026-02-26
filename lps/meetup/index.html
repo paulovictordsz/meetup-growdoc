@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- SEO -->
+    <title>GrowDoc — Sistema de Aquisição de Pacientes Qualificados para Médicos</title>
+    <meta name="description" content="A GrowDoc é a única solução que implanta um sistema completo de aquisição de pacientes qualificados para médicos, com rastreio de dados, inteligência comercial e equipe dedicada ao seu crescimento.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://meetup-growdoc.pages.dev/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://meetup-growdoc.pages.dev/">
+    <meta property="og:title" content="GrowDoc — Sistema de Aquisição de Pacientes Qualificados">
+    <meta property="og:description" content="Pare de depender de indicações ou de agências que não entendem sua realidade. A GrowDoc implanta um sistema completo com rastreio de dados e inteligência comercial.">
+    <meta property="og:image" content="https://meetup-growdoc.pages.dev/images/logo.png">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:site_name" content="GrowDoc">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="GrowDoc — Sistema de Aquisição de Pacientes">
+    <meta name="twitter:description" content="Sistema completo de aquisição de pacientes qualificados para médicos, com rastreio de dados e inteligência comercial.">
+    <meta name="twitter:image" content="https://meetup-growdoc.pages.dev/images/logo.png">
+
+    <!-- Performance: preconnect -->
+    <link rel="preconnect" href="https://connect.facebook.net">
+    <link rel="dns-prefetch" href="https://connect.facebook.net">
+
+    <!-- Performance: preload hero — imagem correta por device -->
+    <link rel="preload" href="images/bg-mobile.webp" as="image" media="(max-width: 768px)" fetchpriority="high">
+    <link rel="preload" href="images/bg-hero-meetup.webp" as="image" media="(min-width: 769px)" fetchpriority="high">
+
+    <!-- Performance: preload fontes críticas -->
+    <link rel="preload" href="font/Axiforma-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="font/Axiforma-Bold.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Meta Pixel — carrega após page load para não bloquear LCP -->
+    <script>
+    window.addEventListener('load', function() {
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '824344831959206');
+        fbq('track', 'PageView');
+    });
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=824344831959206&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel -->
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <img src="images/logo.png" alt="GrowDoc Logo" class="hero-logo">
+            <h1 class="hero-title gradient-text">
+                Médico, pare de depender de indicações ou de agências que não entendem sua realidade.
+            </h1>
+            <p class="hero-subtitle">
+                A <strong>GrowDoc</strong> é a única solução que implanta um <strong>sistema completo de aquisição de pacientes qualificados,</strong> com rastreio de dados, inteligência comercial e equipe dedicada ao seu crescimento.
+            </p>
+            <div class="hero-badge">
+                <p>Tudo isso sem te fazer virar blogueiro ou refém do Instagram</p>
+            </div>
+            <a href="#form" class="cta-button-yellow">QUERO PACIENTES QUALIFICADOS</a>
+        </div>
+    </section>
+
+    <!-- Se... Section -->
+    <section class="problems">
+        <div class="container">
+            <h2 class="section-title">Se você</h2>
+            <div class="problems-grid">
+                <div class="problem-card">
+                    <div class="problem-card-icon">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="20" y="25" width="60" height="55" rx="4" stroke-width="3"/>
+                            <line x1="20" y1="40" x2="80" y2="40" stroke-width="3"/>
+                            <line x1="35" y1="25" x2="35" y2="15" stroke-width="3"/>
+                            <line x1="65" y1="25" x2="65" y1="15" stroke-width="3"/>
+                            <circle cx="35" cy="55" r="3" fill="#03ffc2"/>
+                            <circle cx="50" cy="55" r="3" fill="#03ffc2"/>
+                            <circle cx="65" cy="55" r="3" fill="#03ffc2"/>
+                            <circle cx="35" cy="68" r="3" fill="#03ffc2"/>
+                        </svg>
+                    </div>
+                    <p>Cansado de campanhas que só trazem <strong>leads desqualificados;</strong></p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-card-icon">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <polyline points="20,70 35,50 45,55 60,30 75,40" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="75" cy="30" r="15" stroke-width="3"/>
+                            <text x="75" y="37" font-size="20" text-anchor="middle" fill="#03ffc2" stroke="none" font-weight="bold">$</text>
+                        </svg>
+                    </div>
+                    <p>Sem tempo para entender marketing, mas <strong>precisando de mais pacientes;</strong></p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-card-icon">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="50" cy="30" r="12" stroke-width="3"/>
+                            <path d="M 35 52 Q 35 45, 42 45 L 58 45 Q 65 45, 65 52 L 65 65 L 35 65 Z" stroke-width="3"/>
+                            <circle cx="28" cy="45" r="9" stroke-width="3"/>
+                            <circle cx="72" cy="45" r="9" stroke-width="3"/>
+                            <line x1="43" y1="65" x2="43" y2="75" stroke-width="3"/>
+                            <line x1="57" y1="65" x2="57" y2="75" stroke-width="3"/>
+                        </svg>
+                    </div>
+                    <p>Frustrado com agências que não sabem o que pode ou não pode no <strong>marketing médico;</strong></p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-card-icon">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="25" y="25" width="50" height="50" rx="8" stroke-width="3"/>
+                            <circle cx="38" cy="42" r="4" fill="#03ffc2"/>
+                            <circle cx="62" cy="42" r="4" fill="#03ffc2"/>
+                            <path d="M 38 58 Q 50 54, 62 58" stroke-width="3" stroke-linecap="round"/>
+                            <circle cx="85" cy="30" r="4" fill="#03ffc2"/>
+                            <circle cx="85" cy="50" r="4" fill="#03ffc2"/>
+                            <circle cx="85" cy="70" r="4" fill="#03ffc2"/>
+                            <line x1="75" y1="30" x2="80" y2="30" stroke-width="2"/>
+                            <line x1="75" y1="50" x2="80" y2="50" stroke-width="2"/>
+                            <line x1="75" y1="70" x2="80" y2="70" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <p>Sentindo que sua clínica poderia estar crescendo muito mais, <strong>mas algo trava…</strong></p>
+                </div>
+            </div>
+
+            <!-- Você não está sozinho Section -->
+            <div class="not-alone-wrapper">
+                <div class="not-alone-container">
+                    <div class="not-alone-content">
+                        <h3 class="not-alone-title">Você não está sozinho.</h3>
+                        <p class="not-alone-text">
+                            A maioria dos médicos que hoje têm <strong>resultados previsíveis com a GrowDoc</strong> também já passaram por essa fase de frustração.
+                        </p>
+                        <p class="not-alone-text">
+                            Mas a diferença é que eles decidiram <strong>implantar uma estrutura de marketing que realmente funciona no mundo real da medicina.</strong>
+                        </p>
+                        <a href="#form" class="cta-button">QUERO PACIENTES QUALIFICADOS</a>
+                    </div>
+                    <div class="not-alone-image">
+                        <img src="images/5151515151.png" alt="Médico refletindo sobre crescimento profissional" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Form Section -->
+    <section class="form-section" id="form">
+        <div class="container">
+            <h2 class="section-title">FORMULÁRIO APLICAÇÃO</h2>
+            <form id="utmCaptureForm" class="application-form" novalidate>
+                <!-- Grid de Campos -->
+                <div class="form-grid">
+                    <!-- Campo Nome -->
+                    <div class="form-group">
+                        <label class="form-label">
+                            Nome e Sobrenome<span class="required">*</span>
+                        </label>
+                        <input
+                            type="text"
+                            name="name"
+                            class="form-input"
+                            placeholder="Ex: &quot;Julia Nascimento&quot;"
+                            required
+                            autocomplete="name"
+                        >
+                        <div class="form-error-message">Campo obrigatório</div>
+                    </div>
+
+                    <!-- Campo Telefone -->
+                    <div class="form-group">
+                        <label class="form-label">
+                            DDD + Whatsapp<span class="required">*</span>
+                        </label>
+                        <input
+                            type="tel"
+                            name="phone"
+                            class="form-input"
+                            placeholder="Ex: &quot;31999996666&quot;"
+                            required
+                            autocomplete="tel"
+                        >
+                        <div class="form-error-message">Telefone inválido</div>
+                    </div>
+                </div>
+
+                <!-- Campo Médico Vascular -->
+                <div class="form-group">
+                    <label class="form-label">
+                        Você é médico(a)?<span class="required">*</span>
+                    </label>
+                    <select
+                        name="is_vascular"
+                        class="form-input"
+                        required
+                    >
+                        <option value="">Selecione uma opção</option>
+                        <option value="Sim">Sim</option>
+                        <option value="Não">Não</option>
+                    </select>
+                    <div class="form-error-message">Campo obrigatório</div>
+                </div>
+
+                <!-- Campo Momento Profissional -->
+                <div class="form-group">
+                    <label class="form-label">
+                        Em qual momento profissional você se encontra hoje?<span class="required">*</span>
+                    </label>
+                    <select
+                        name="professional_stage"
+                        class="form-input"
+                        required
+                    >
+                        <option value="">Selecione uma opção</option>
+                        <option value="Clínica própria ou consultório particular">Clínica própria ou consultório particular</option>
+                        <option value="Atendo em clínica de terceiros">Atendo em clínica de terceiros</option>
+                        <option value="Divido entre consultório particular e plantão">Divido entre consultório particular e plantão</option>
+                        <option value="Atuo majoritariamente em plantões">Atuo majoritariamente em plantões</option>
+                        <option value="Outro">Outro</option>
+                    </select>
+                    <div class="form-error-message">Campo obrigatório</div>
+                </div>
+
+                <!-- Campos Hidden para UTM Parameters -->
+                <input type="hidden" name="email" value="">
+                <input type="hidden" name="utm_source" value="">
+                <input type="hidden" name="utm_campaign" value="">
+                <input type="hidden" name="utm_medium" value="">
+                <input type="hidden" name="utm_content" value="">
+                <input type="hidden" name="utm_term" value="">
+                <input type="hidden" name="utm_id" value="">
+                <input type="hidden" name="fbclid" value="">
+                <input type="hidden" name="gclid" value="">
+                <input type="hidden" name="wbraid" value="">
+
+                <!-- Botão de Envio -->
+                <button type="submit" class="submit-button">
+                    Ir para o WhatsApp!
+                </button>
+
+                <div class="form-loading">
+                    Redirecionando
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">DEPOIMENTOS</h2>
+            <h3 class="subsection-title">Veja como acontece na prática:</h3>
+
+            <div class="carousel" id="testimonials-carousel">
+                <div class="carousel-track">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <h4>"Meta alcançada de 150% de crescimento: R$1.250.615,25"</h4>
+                        </div>
+                        <img src="images/DEPOIMENTO-02.webp" alt="Meta alcançada de 150% de crescimento: R$1.250.615,25" loading="lazy">
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <h4>"Queria agradecer e parabenizar a todos da GROWDOC pela competência e pelo empenho em me ajudar"</h4>
+                        </div>
+                        <img src="images/DEPOIMENTO-07.webp" alt="Queria agradecer e parabenizar a todos da GROWDOC" loading="lazy">
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <h4>"Fez um pix de R$15.000 e passou o restante no cartão - isso é que é funil escorregador"</h4>
+                        </div>
+                        <img src="images/DEPOIMENTO-06.webp" alt="Fez um pix de R$15.000 e passou o restante no cartão" loading="lazy">
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <h4>"50 indicações se tornaram R$158.831,75"</h4>
+                        </div>
+                        <img src="images/DEPOIMENTO-03.webp" alt="50 indicações se tornaram R$158.831,75" loading="lazy">
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <h4>"31 pacientes antigos se tornaram R$153.000"</h4>
+                        </div>
+                        <img src="images/DEPOIMENTO-05.webp" alt="31 pacientes antigos se tornaram R$153.000" loading="lazy">
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <h4>"3 agendamentos em 1 semana de campanhas ativas"</h4>
+                        </div>
+                        <img src="images/DEPOIMENTO-01.webp" alt="3 agendamentos em 1 semana de campanhas ativas" loading="lazy">
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <h4>"Agenda cheia até a segunda semana de setembro..."</h4>
+                        </div>
+                        <img src="images/DEPOIMENTO-04-copy.webp" alt="Agenda cheia até a segunda semana de setembro" loading="lazy">
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <h4>"Piscamos e o faturamento do Guilherme aumentou..."</h4>
+                        </div>
+                        <img src="images/DEPOIMENTO-11.webp" alt="Piscamos e o faturamento do Guilherme aumentou" loading="lazy">
+                    </div>
+                </div>
+
+                <button class="carousel-button prev" aria-label="Anterior">&lt;</button>
+                <button class="carousel-button next" aria-label="Próximo">&gt;</button>
+
+                <div class="carousel-dots"></div>
+            </div>
+
+            <a href="#form" class="cta-button">QUERO PACIENTES QUALIFICADOS</a>
+        </div>
+    </section>
+
+    <!-- Truth Section -->
+    <section class="truth-section">
+        <div class="truth-overlay"></div>
+        <div class="container">
+
+            <div class="truth-eyebrow" aria-label="A verdade dura">
+                <span class="truth-eyebrow-line" aria-hidden="true"></span>
+                <span class="truth-eyebrow-text">A VERDADE DURA</span>
+                <span class="truth-eyebrow-line" aria-hidden="true"></span>
+            </div>
+
+            <h2 class="truth-title">A gente sabe que você não fez medicina para virar gestor de marketing...</h2>
+
+            <p class="truth-text">
+                Mas enquanto você tenta fazer tudo sozinho, a agenda do seu concorrente está lotada — com pacientes que poderiam ser seus.
+            </p>
+
+            <div class="truth-callout">
+                <div class="truth-callout-accent" aria-hidden="true"></div>
+                <p>Depender de <strong>agências genéricas que atendem de restaurante a pet shop</strong> não é uma estratégia. É uma aposta no escuro.</p>
+                <p>Você precisa de uma solução que funcione para <em>sua clínica</em>, <em>seu tempo</em> e <em>seus valores</em>.</p>
+            </div>
+
+            <a href="#form" class="cta-button">QUERO PACIENTES QUALIFICADOS</a>
+        </div>
+    </section>
+
+    <!-- Methodology Section -->
+    <section class="methodology">
+        <div class="container">
+
+            <div class="methodology-header">
+                <div class="methodology-eyebrow">
+                    <span class="methodology-eyebrow-line"></span>
+                    <span class="methodology-eyebrow-text">Metodologia</span>
+                    <span class="methodology-eyebrow-line"></span>
+                </div>
+                <h2 class="methodology-title">O que é a GrowDoc?</h2>
+                <p class="methodology-lead">
+                    <strong>Somos um sistema. Não uma agência.</strong> Enquanto agências oferecem "posts", nós implantamos uma estrutura inteligente e completa que gera pacientes qualificados — sem você virar refém de redes sociais.
+                </p>
+            </div>
+
+            <div class="comparison">
+                <div class="comparison-card growdoc">
+                    <div class="comparison-card-header">
+                        <span class="comparison-tag growdoc-tag">Sistema completo</span>
+                        <h3>GrowDoc</h3>
+                    </div>
+                    <ul>
+                        <li>
+                            <svg class="icon-check" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" stroke="#00D9B5" stroke-width="1.2"/><path d="M5 8.2l2 2 4-4" stroke="#00D9B5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            <span>Estratégia validada e exclusiva para médicos</span>
+                        </li>
+                        <li>
+                            <svg class="icon-check" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" stroke="#00D9B5" stroke-width="1.2"/><path d="M5 8.2l2 2 4-4" stroke="#00D9B5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            <span>Qualificação de pacientes via funil</span>
+                        </li>
+                        <li>
+                            <svg class="icon-check" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" stroke="#00D9B5" stroke-width="1.2"/><path d="M5 8.2l2 2 4-4" stroke="#00D9B5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            <span>Estrutura completa de marketing</span>
+                        </li>
+                        <li>
+                            <svg class="icon-check" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" stroke="#00D9B5" stroke-width="1.2"/><path d="M5 8.2l2 2 4-4" stroke="#00D9B5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            <span>Rastreamento de dados e origem dos leads</span>
+                        </li>
+                        <li>
+                            <svg class="icon-check" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" stroke="#00D9B5" stroke-width="1.2"/><path d="M5 8.2l2 2 4-4" stroke="#00D9B5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            <span>Time completo por projeto (tráfego, copy, vídeo, designer, gestor)</span>
+                        </li>
+                        <li>
+                            <svg class="icon-check" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" stroke="#00D9B5" stroke-width="1.2"/><path d="M5 8.2l2 2 4-4" stroke="#00D9B5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            <span>Parceria real com acompanhamento constante</span>
+                        </li>
+                        <li>
+                            <svg class="icon-check" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" stroke="#00D9B5" stroke-width="1.2"/><path d="M5 8.2l2 2 4-4" stroke="#00D9B5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            <span>Ética e compliance médico</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="comparison-card agencies">
+                    <div class="comparison-card-header">
+                        <span class="comparison-tag agencies-tag">Sem especialização</span>
+                        <h3>Agências Tradicionais</h3>
+                    </div>
+                    <ul>
+                        <li>
+                            <svg class="icon-x" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" stroke="#ff4444" stroke-width="1.2"/><path d="M5.5 5.5l5 5M10.5 5.5l-5 5" stroke="#ff4444" stroke-width="1.5" stroke-linecap="round"/></svg>
+                            <span>Estratégias genéricas, copiadas de outros setores</span>
+                        </li>
+                        <li>
+                            <svg class="icon-x" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" stroke="#ff4444" stroke-width="1.2"/><path d="M5.5 5.5l5 5M10.5 5.5l-5 5" stroke="#ff4444" stroke-width="1.5" stroke-linecap="round"/></svg>
+                            <span>Enxurrada de curiosos sem intenção de compra</span>
+                        </li>
+                        <li>
+                            <svg class="icon-x" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" stroke="#ff4444" stroke-width="1.2"/><path d="M5.5 5.5l5 5M10.5 5.5l-5 5" stroke="#ff4444" stroke-width="1.5" stroke-linecap="round"/></svg>
+                            <span>Só oferecem "gestão de tráfego" ou "social media"</span>
+                        </li>
+                        <li>
+                            <svg class="icon-x" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" stroke="#ff4444" stroke-width="1.2"/><path d="M5.5 5.5l5 5M10.5 5.5l-5 5" stroke="#ff4444" stroke-width="1.5" stroke-linecap="round"/></svg>
+                            <span>Não sabem dizer o que realmente funcionou</span>
+                        </li>
+                        <li>
+                            <svg class="icon-x" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" stroke="#ff4444" stroke-width="1.2"/><path d="M5.5 5.5l5 5M10.5 5.5l-5 5" stroke="#ff4444" stroke-width="1.5" stroke-linecap="round"/></svg>
+                            <span>1 freelancer tentando fazer tudo</span>
+                        </li>
+                        <li>
+                            <svg class="icon-x" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" stroke="#ff4444" stroke-width="1.2"/><path d="M5.5 5.5l5 5M10.5 5.5l-5 5" stroke="#ff4444" stroke-width="1.5" stroke-linecap="round"/></svg>
+                            <span>Você só ouve deles quando questiona o resultado</span>
+                        </li>
+                        <li>
+                            <svg class="icon-x" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" stroke="#ff4444" stroke-width="1.2"/><path d="M5.5 5.5l5 5M10.5 5.5l-5 5" stroke="#ff4444" stroke-width="1.5" stroke-linecap="round"/></svg>
+                            <span>Sem noção do que é permitido pelo CFM</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <a href="#form" class="cta-button">QUERO PACIENTES QUALIFICADOS</a>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="results">
+        <div class="container">
+            <h2 class="section-title">Veja o que os médicos que confiaram na GrowDoc estão <span class="highlight">alcançando de resultado:</span></h2>
+
+            <div class="carousel" id="results-carousel">
+                <div class="carousel-track">
+                    <div class="result-card">
+                        <h3 class="result-title">Tratamento fechado: paciente que veio do tráfego investiu R$9.000 em um único atendimento!</h3>
+                        <img src="images/resultado-1.png" alt="Tratamento fechado: paciente que veio do tráfego investiu R$9.000 em um único atendimento!" loading="lazy">
+                    </div>
+
+                    <div class="result-card">
+                        <h3 class="result-title">Campanhas no ar e leads qualificados pingando no WhatsApp!</h3>
+                        <img src="images/resultado-2.png" alt="Campanhas no ar e leads qualificados pingando no WhatsApp!" loading="lazy">
+                    </div>
+
+                    <div class="result-card">
+                        <h3 class="result-title">Captação eficaz: paciente agendou online e realizou botox.</h3>
+                        <img src="images/resultado-3.png" alt="Captação eficaz: paciente agendou online e realizou botox" loading="lazy">
+                    </div>
+
+                    <div class="result-card">
+                        <h3 class="result-title">82 leads em poucos dias e agenda preenchida até o mês seguinte</h3>
+                        <img src="images/resultado-4.png" alt="82 leads em poucos dias e agenda preenchida até o mês seguinte" loading="lazy">
+                    </div>
+
+                    <div class="result-card">
+                        <h3 class="result-title">Reconhecida como uma das melhores agências pelos nossos clientes satisfeitos!</h3>
+                        <img src="images/resultado-5.png" alt="Reconhecida como uma das melhores agências pelos nossos clientes satisfeitos!" loading="lazy">
+                    </div>
+
+                    <div class="result-card">
+                        <h3 class="result-title">Excelência em campanhas com nota 10 de satisfação!</h3>
+                        <img src="images/resultado-6.png" alt="Excelência em campanhas com nota 10 de satisfação!" loading="lazy">
+                    </div>
+
+                    <div class="result-card">
+                        <h3 class="result-title">Agilidade e dedicação que transformam planos em realidade!</h3>
+                        <img src="images/resultado-7.png" alt="Agilidade e dedicação que transformam planos em realidade!" loading="lazy">
+                    </div>
+
+                    <div class="result-card">
+                        <h3 class="result-title">15 solicitações de exame em uma semana!</h3>
+                        <img src="images/resultado-8.png" alt="15 solicitações de exame em uma semana!" loading="lazy">
+                    </div>
+                </div>
+
+                <button class="carousel-button prev" aria-label="Anterior">&lt;</button>
+                <button class="carousel-button next" aria-label="Próximo">&gt;</button>
+
+                <div class="carousel-dots"></div>
+            </div>
+
+            <a href="#form" class="cta-button">QUERO PACIENTES QUALIFICADOS</a>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="final-cta">
+        <div class="final-cta-overlay"></div>
+        <div class="container">
+            <div class="final-cta-grid">
+
+                <!-- Coluna Esquerda -->
+                <div class="final-cta-left">
+                    <div class="final-cta-badge">
+                        <span class="badge-icon" aria-hidden="true">
+                            <svg class="badge-ping" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="7" cy="7" r="6" stroke="#00D9B5" stroke-width="1.5"/>
+                            </svg>
+                            <svg class="badge-dot" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="7" cy="7" r="2.5" fill="#00D9B5"/>
+                            </svg>
+                        </span>
+                        <span>Por que a GrowDoc?</span>
+                    </div>
+
+                    <h2 class="final-cta-title">
+                        A GrowDoc não é<br>uma agência.
+                    </h2>
+
+                    <p class="final-description">
+                        Criado por especialistas em <strong>marketing médico</strong>, com experiência prática em centenas de projetos para clínicas de diversas especialidades.
+                    </p>
+
+                    <p class="final-description">
+                        Clique abaixo e preencha seu diagnóstico. Vamos entender se você está pronto(a) para essa virada.
+                    </p>
+
+                    <a href="#form" class="cta-button cta-large">QUERO ME APLICAR PARA O SISTEMA GROWDOC</a>
+                </div>
+
+                <!-- Coluna Direita — Cards -->
+                <div class="final-cta-right">
+
+                    <!-- Card 1: Sistema -->
+                    <div class="final-cta-card">
+                        <div class="final-cta-card-icon">
+                            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M18 11.5C14.41 11.5 11.5 14.41 11.5 18C11.5 21.59 14.41 24.5 18 24.5C21.59 24.5 24.5 21.59 24.5 18C24.5 14.41 21.59 11.5 18 11.5Z" stroke="#00D9B5" stroke-width="1.5" fill="none"/>
+                                <circle cx="18" cy="18" r="2.8" fill="#00D9B5" opacity="0.5"/>
+                                <path d="M18 6V9M18 27V30M6 18H9M27 18H30" stroke="#00D9B5" stroke-width="1.8" stroke-linecap="round"/>
+                                <path d="M9.93 9.93L12.05 12.05M23.95 23.95L26.07 26.07M9.93 26.07L12.05 23.95M23.95 12.05L26.07 9.93" stroke="#00D9B5" stroke-width="1.8" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <div class="final-cta-card-body">
+                            <h3 class="final-cta-card-title">Sistema</h3>
+                            <p class="final-cta-card-desc">Uma estrutura inteligente e completa que gera pacientes qualificados de forma previsível — sem depender de sorte ou indicação.</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Estrutura -->
+                    <div class="final-cta-card">
+                        <div class="final-cta-card-icon">
+                            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <rect x="6" y="24" width="24" height="5" rx="2" stroke="#00D9B5" stroke-width="1.5" fill="none"/>
+                                <rect x="9" y="16.5" width="18" height="5" rx="2" stroke="#00D9B5" stroke-width="1.5" fill="none"/>
+                                <rect x="12" y="9" width="12" height="5" rx="2" stroke="#00D9B5" stroke-width="1.5" fill="none"/>
+                                <line x1="18" y1="14" x2="18" y2="16.5" stroke="#00D9B5" stroke-width="1.5" stroke-dasharray="1.5 1.5"/>
+                                <line x1="18" y1="21.5" x2="18" y2="24" stroke="#00D9B5" stroke-width="1.5" stroke-dasharray="1.5 1.5"/>
+                            </svg>
+                        </div>
+                        <div class="final-cta-card-body">
+                            <h3 class="final-cta-card-title">Estrutura</h3>
+                            <p class="final-cta-card-desc">Cada pilar do seu marketing é montado, integrado e monitorado — tráfego, copy, vídeo, design e gestão comercial em uma única operação.</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Parceiro Estratégico -->
+                    <div class="final-cta-card">
+                        <div class="final-cta-card-icon">
+                            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <circle cx="13" cy="12" r="4.5" stroke="#00D9B5" stroke-width="1.5" fill="none"/>
+                                <path d="M4 27C4 22.58 8.03 19 13 19" stroke="#00D9B5" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+                                <circle cx="23" cy="12" r="4.5" stroke="#00D9B5" stroke-width="1.5" fill="none"/>
+                                <path d="M23 19C27.97 19 32 22.58 32 27" stroke="#00D9B5" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+                                <path d="M17 24L19 22L21 24" stroke="#00D9B5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                                <line x1="19" y1="22" x2="19" y2="28" stroke="#00D9B5" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <div class="final-cta-card-body">
+                            <h3 class="final-cta-card-title">Parceiro Estratégico</h3>
+                            <p class="final-cta-card-desc">Acompanhamento constante, relatórios reais e um time que entende marketing médico — crescendo junto com sua clínica a cada ciclo.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>2026 © GROWDOC - TODOS OS DIREITOS RESERVADOS</p>
+        </div>
+    </footer>
+
+    <!-- UTM Capture Script -->
+    <script>
+    (function() {
+        'use strict';
+
+        // ============================================
+        // MÁSCARA DE TELEFONE BRASILEIRO
+        // ============================================
+
+        function applyPhoneMask(value) {
+            const numbers = value.replace(/\D/g, '');
+            if (!numbers) return '';
+
+            if (numbers.length <= 10) {
+                return numbers
+                    .replace(/^(\d{2})(\d)/g, '($1) $2')
+                    .replace(/(\d{4})(\d)/, '$1-$2')
+                    .substring(0, 14);
+            } else {
+                return numbers
+                    .replace(/^(\d{2})(\d)/g, '($1) $2')
+                    .replace(/(\d{5})(\d)/, '$1-$2')
+                    .substring(0, 15);
+            }
+        }
+
+        function validatePhone(value) {
+            const numbers = value.replace(/\D/g, '');
+            return numbers.length === 10 || numbers.length === 11;
+        }
+
+        // ============================================
+        // CAPTURA E ARMAZENAMENTO DE UTM PARAMETERS
+        // ============================================
+
+        function getUTMFromURL() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return {
+                utm_source: urlParams.get('utm_source') || '',
+                utm_campaign: urlParams.get('utm_campaign') || '',
+                utm_medium: urlParams.get('utm_medium') || '',
+                utm_content: urlParams.get('utm_content') || '',
+                utm_term: urlParams.get('utm_term') || '',
+                utm_id: urlParams.get('utm_id') || '',
+                fbclid: urlParams.get('fbclid') || '',
+                gclid: urlParams.get('gclid') || '',
+                wbraid: urlParams.get('wbraid') || ''
+            };
+        }
+
+        function saveUTMToStorage(utmParams) {
+            try {
+                Object.keys(utmParams).forEach(key => {
+                    if (utmParams[key]) {
+                        localStorage.setItem('utm_' + key, utmParams[key]);
+                    }
+                });
+                localStorage.setItem('utm_timestamp', Date.now());
+                console.log('✅ UTM parameters salvos:', utmParams);
+            } catch (e) {
+                console.warn('⚠️ Erro ao salvar UTMs:', e);
+            }
+        }
+
+        function getUTMFromStorage() {
+            return {
+                utm_source: localStorage.getItem('utm_utm_source') || '',
+                utm_campaign: localStorage.getItem('utm_utm_campaign') || '',
+                utm_medium: localStorage.getItem('utm_utm_medium') || '',
+                utm_content: localStorage.getItem('utm_utm_content') || '',
+                utm_term: localStorage.getItem('utm_utm_term') || '',
+                utm_id: localStorage.getItem('utm_utm_id') || '',
+                fbclid: localStorage.getItem('utm_fbclid') || '',
+                gclid: localStorage.getItem('utm_gclid') || '',
+                wbraid: localStorage.getItem('utm_wbraid') || ''
+            };
+        }
+
+        function initUTMCapture() {
+            const currentUTM = getUTMFromURL();
+            const hasUTMInURL = Object.values(currentUTM).some(val => val !== '');
+
+            if (hasUTMInURL) {
+                saveUTMToStorage(currentUTM);
+                return currentUTM;
+            }
+
+            return getUTMFromStorage();
+        }
+
+        // ============================================
+        // VALIDAÇÃO DO FORMULÁRIO
+        // ============================================
+
+        function validateName(name) {
+            return name.trim().length > 0;
+        }
+
+        function validateSelect(value) {
+            return value !== '' && value !== null;
+        }
+
+        function showError(fieldName) {
+            const field = document.querySelector(`input[name="${fieldName}"], select[name="${fieldName}"]`);
+            const group = field?.closest('.form-group');
+            if (group && field) {
+                group.classList.add('has-error');
+                field.classList.add('error');
+            }
+        }
+
+        function clearError(fieldName) {
+            const field = document.querySelector(`input[name="${fieldName}"], select[name="${fieldName}"]`);
+            const group = field?.closest('.form-group');
+            if (group && field) {
+                group.classList.remove('has-error');
+                field.classList.remove('error');
+            }
+        }
+
+        // ============================================
+        // CONSTRUÇÃO DA URL DE REDIRECIONAMENTO
+        // ============================================
+
+        function buildRedirectURL(formData, utmParams) {
+            const baseURL = 'https://webhooks02.manager01.growdoc.com.br/webhook/redirect-global';
+
+            // Captura a URL completa da página atual
+            const pageURL = window.location.href;
+
+            const params = new URLSearchParams({
+                name: formData.name,
+                email: formData.email || '',
+                phone: formData.phone,
+                page_url: pageURL,
+                redirect_url: 'http://angiologista.growdoc.com.br/',
+                '01': formData.is_vascular,
+                '02': formData.professional_stage,
+                utm_source: utmParams.utm_source,
+                utm_campaign: utmParams.utm_campaign,
+                utm_medium: utmParams.utm_medium,
+                utm_content: utmParams.utm_content,
+                utm_term: utmParams.utm_term,
+                utm_id: utmParams.utm_id,
+                fbclid: utmParams.fbclid,
+                gclid: utmParams.gclid,
+                wbraid: utmParams.wbraid
+            });
+
+            return `${baseURL}?${params.toString()}`;
+        }
+
+        // ============================================
+        // SUBMISSÃO DO FORMULÁRIO
+        // ============================================
+
+        function handleFormSubmit(event) {
+            event.preventDefault();
+
+            const form = event.target;
+            const nameInput = form.querySelector('input[name="name"]');
+            const phoneInput = form.querySelector('input[name="phone"]');
+            const isVascularSelect = form.querySelector('select[name="is_vascular"]');
+            const professionalStageSelect = form.querySelector('select[name="professional_stage"]');
+
+            const name = nameInput.value.trim();
+            const phone = phoneInput.value.trim();
+            const isVascular = isVascularSelect.value;
+            const professionalStage = professionalStageSelect.value;
+
+            clearError('name');
+            clearError('phone');
+            clearError('is_vascular');
+            clearError('professional_stage');
+
+            let hasError = false;
+
+            if (!validateName(name)) {
+                showError('name');
+                hasError = true;
+            }
+
+            if (!validatePhone(phone)) {
+                showError('phone');
+                hasError = true;
+            }
+
+            if (!validateSelect(isVascular)) {
+                showError('is_vascular');
+                hasError = true;
+            }
+
+            if (!validateSelect(professionalStage)) {
+                showError('professional_stage');
+                hasError = true;
+            }
+
+            if (hasError) {
+                return;
+            }
+
+            const utmParams = initUTMCapture();
+
+            form.querySelector('input[name="utm_source"]').value = utmParams.utm_source;
+            form.querySelector('input[name="utm_campaign"]').value = utmParams.utm_campaign;
+            form.querySelector('input[name="utm_medium"]').value = utmParams.utm_medium;
+            form.querySelector('input[name="utm_content"]').value = utmParams.utm_content;
+            form.querySelector('input[name="utm_term"]').value = utmParams.utm_term;
+            form.querySelector('input[name="utm_id"]').value = utmParams.utm_id;
+            form.querySelector('input[name="fbclid"]').value = utmParams.fbclid;
+            form.querySelector('input[name="gclid"]').value = utmParams.gclid;
+            form.querySelector('input[name="wbraid"]').value = utmParams.wbraid;
+
+            const cleanPhone = phone.replace(/\D/g, '');
+
+            const formData = {
+                name: name,
+                email: '',
+                phone: cleanPhone,
+                is_vascular: isVascular,
+                professional_stage: professionalStage
+            };
+
+            const redirectURL = buildRedirectURL(formData, utmParams);
+
+            console.log('📤 Enviando dados:', {
+                formData,
+                utmParams,
+                redirectURL
+            });
+
+            console.log('🔗 URL completa de redirecionamento:', redirectURL);
+
+            // Debug: copiar URL para clipboard
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(redirectURL).then(() => {
+                    console.log('✅ URL copiada para área de transferência!');
+                });
+            }
+
+            const submitBtn = form.querySelector('.submit-button');
+            const loadingMsg = form.querySelector('.form-loading');
+            submitBtn.disabled = true;
+            loadingMsg.classList.add('active');
+
+            setTimeout(() => {
+                console.log('🚀 Redirecionando para:', redirectURL);
+                window.location.href = redirectURL;
+            }, 500);
+        }
+
+        // ============================================
+        // INICIALIZAÇÃO
+        // ============================================
+
+        function initUTMForm() {
+            const initialUTM = initUTMCapture();
+            console.log('🎯 UTM Parameters capturados:', initialUTM);
+
+            const form = document.getElementById('utmCaptureForm');
+            if (!form) return;
+
+            form.addEventListener('submit', handleFormSubmit);
+
+            const nameInput = form.querySelector('input[name="name"]');
+            if (nameInput) {
+                nameInput.addEventListener('input', () => clearError('name'));
+            }
+
+            const phoneInput = form.querySelector('input[name="phone"]');
+            if (phoneInput) {
+                phoneInput.addEventListener('input', function(e) {
+                    clearError('phone');
+                    this.value = applyPhoneMask(this.value);
+                });
+            }
+
+            const isVascularSelect = form.querySelector('select[name="is_vascular"]');
+            if (isVascularSelect) {
+                isVascularSelect.addEventListener('change', () => clearError('is_vascular'));
+            }
+
+            const professionalStageSelect = form.querySelector('select[name="professional_stage"]');
+            if (professionalStageSelect) {
+                professionalStageSelect.addEventListener('change', () => clearError('professional_stage'));
+            }
+
+            console.log('✅ Formulário UTM inicializado com sucesso');
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initUTMForm);
+        } else {
+            initUTMForm();
+        }
+
+    })();
+    </script>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
