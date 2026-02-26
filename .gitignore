@@ -1,0 +1,13 @@
+# Dependências
+lps/*/node_modules/
+
+# Build gerado automaticamente
+lps/*/dist/
+site/
+
+# macOS
+.DS_Store
+
+# Logs
+*.log
+npm-debug.log*
