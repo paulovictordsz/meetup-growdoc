@@ -33,7 +33,8 @@ LPS=(
 deploy_root() {
   local SRC="$LPS_DIR/$1"
   echo "  🏠 Copiando site raiz..."
-  rsync -a --exclude '.DS_Store' "$SRC/" "$SITE_DIR/"
+  cp -r "$SRC/." "$SITE_DIR/"
+  find "$SITE_DIR" -name '.DS_Store' -delete 2>/dev/null || true
 }
 
 build_lp() {
@@ -48,7 +49,8 @@ build_lp() {
   npm run build --silent
 
   rm -rf "$DEST" && mkdir -p "$DEST"
-  rsync -a --exclude '_redirects' "$SRC/dist/" "$DEST/"
+  cp -r "$SRC/dist/." "$DEST/"
+  rm -f "$DEST/_redirects"
 
   local RULE="/$NAME/*  /$NAME/index.html  200"
   if [ -f "$REDIRECTS_FILE" ]; then
