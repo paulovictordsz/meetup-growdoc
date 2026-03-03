@@ -7,6 +7,8 @@ export default defineConfig({
   plugins: [react(), tailwindcss()],
   base: '/growth',
   build: {
+    target: 'esnext',
+    modulePreload: { polyfill: false },
     rollupOptions: {
       output: {
         manualChunks: {

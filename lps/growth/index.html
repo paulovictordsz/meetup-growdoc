@@ -4,13 +4,39 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/grow_ico.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- SEO -->
     <title>GrowDoc — Mais Pacientes, Mais Faturamento</title>
+    <meta name="description" content="A GrowDoc implanta um sistema completo de aquisição de pacientes qualificados para médicos, com rastreio de dados, inteligência comercial e equipe dedicada ao seu crescimento.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://meetup.growdoc.com.br/growth">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://meetup.growdoc.com.br/growth">
+    <meta property="og:title" content="GrowDoc — Mais Pacientes, Mais Faturamento">
+    <meta property="og:description" content="Implante um sistema completo de aquisição de pacientes qualificados. Rastreio de dados, inteligência comercial e equipe dedicada ao seu crescimento.">
+    <meta property="og:image" content="https://meetup.growdoc.com.br/images/logo.png">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:site_name" content="GrowDoc">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="GrowDoc — Mais Pacientes, Mais Faturamento">
+    <meta name="twitter:description" content="Sistema completo de aquisição de pacientes qualificados para médicos.">
+    <meta name="twitter:image" content="https://meetup.growdoc.com.br/images/logo.png">
 
     <!-- Performance: preconnect -->
     <link rel="preconnect" href="https://connect.facebook.net">
     <link rel="dns-prefetch" href="https://connect.facebook.net">
     <link rel="preconnect" href="https://bkp.growdoc.com.br" crossorigin>
     <link rel="dns-prefetch" href="https://bkp.growdoc.com.br">
+
+    <!-- Performance: preload do logo (LCP element) -->
+    <link rel="preload" href="https://bkp.growdoc.com.br/wp-content/uploads/2025/01/GrowDoc-Logo-11.png" as="image" fetchpriority="high">
+
+    <!-- Critical CSS inline — evita flash branco antes do React montar -->
+    <style>*{margin:0;padding:0;box-sizing:border-box}body{background:#131515;color:#fff;font-family:system-ui,-apple-system,sans-serif}#root{min-height:100dvh}</style>
 
     <!-- Meta Pixel — carrega após page load para não bloquear LCP -->
     <script>

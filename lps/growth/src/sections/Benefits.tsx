@@ -55,6 +55,9 @@ export default function Benefits() {
                 src="https://bkp.growdoc.com.br/wp-content/uploads/2025/01/Lucas-768x1255.jpg"
                 alt="Lucas Faria — CEO da GrowDoc"
                 className="w-full object-cover"
+                loading="lazy"
+                width="768"
+                height="1255"
               />
             </div>
             <div className="flex flex-col items-center gap-1 text-center">

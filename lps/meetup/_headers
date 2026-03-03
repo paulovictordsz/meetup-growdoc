@@ -11,6 +11,10 @@
 /script.js
   Cache-Control: public, max-age=86400, stale-while-revalidate=86400
 
+# Assets do Vite (hashed — imutáveis por design)
+/growth/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
 # Segurança
 /*
   X-Content-Type-Options: nosniff

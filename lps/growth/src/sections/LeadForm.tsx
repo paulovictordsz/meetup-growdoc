@@ -1,6 +1,4 @@
 import { useState, useEffect, useCallback } from "react";
-import { Input, Select, SelectItem, Button } from "@heroui/react";
-import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
 
 const ACCENT = "#07FDC2";
@@ -8,6 +6,8 @@ const BG = "#131515";
 
 const CAPTURE_URL = "https://lswmkiyqznvuedbuyrkt.supabase.co/functions/v1/capture-lead";
 const WEBHOOK_URL = "https://webhooks02.manager01.growdoc.com.br/webhook/redirect-global";
+
+const CHEVRON_SVG = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='rgba(0%2C217%2C181%2C0.8)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E")`;
 
 type UTMParams = {
   utm_source: string;
@@ -28,7 +28,6 @@ type FormErrors = {
   professional_stage?: string;
 };
 
-// --- UTM helpers ---
 function getUTMFromURL(): UTMParams {
   const p = new URLSearchParams(window.location.search);
   return {
@@ -73,7 +72,6 @@ function captureUTM(): UTMParams {
   return loadUTM();
 }
 
-// --- Phone mask ---
 function applyPhoneMask(value: string): string {
   const n = value.replace(/\D/g, "");
   if (!n) return "";
@@ -87,26 +85,23 @@ function validatePhone(value: string): boolean {
   return n.length === 10 || n.length === 11;
 }
 
-
 export default function LeadForm() {
-  const [name, setName]                     = useState("");
-  const [phone, setPhone]                   = useState("");
-  const [isVascular, setIsVascular]         = useState("");
-  const [profStage, setProfStage]           = useState("");
-  const [errors, setErrors]                 = useState<FormErrors>({});
-  const [loading, setLoading]               = useState(false);
-  const [utmParams, setUtmParams]           = useState<UTMParams | null>(null);
+  const [name, setName]           = useState("");
+  const [phone, setPhone]         = useState("");
+  const [isVascular, setIsVascular] = useState("");
+  const [profStage, setProfStage] = useState("");
+  const [errors, setErrors]       = useState<FormErrors>({});
+  const [loading, setLoading]     = useState(false);
+  const [utmParams, setUtmParams] = useState<UTMParams | null>(null);
 
-  useEffect(() => {
-    setUtmParams(captureUTM());
-  }, []);
+  useEffect(() => { setUtmParams(captureUTM()); }, []);
 
   const validate = useCallback((): boolean => {
     const e: FormErrors = {};
-    if (!name.trim())           e.name              = "Por favor, informe seu nome";
+    if (!name.trim())           e.name              = "Campo obrigatório";
     if (!validatePhone(phone))  e.phone             = "Telefone inválido";
-    if (!isVascular)            e.is_vascular       = "Selecione uma opção";
-    if (!profStage)             e.professional_stage = "Selecione uma opção";
+    if (!isVascular)            e.is_vascular       = "Campo obrigatório";
+    if (!profStage)             e.professional_stage = "Campo obrigatório";
     setErrors(e);
     return Object.keys(e).length === 0;
   }, [name, phone, isVascular, profStage]);
@@ -138,34 +133,14 @@ export default function LeadForm() {
     window.location.href = WEBHOOK_URL + "?" + webhookParams.toString();
   }, [validate, name, phone, isVascular, profStage, utmParams]);
 
-  const inputStyles = {
-    inputWrapper: [
-      "bg-white/5 border border-white/10 hover:border-white/20",
-      "focus-within:!border-[#07FDC2] focus-within:!bg-white/8",
-      "transition-all duration-200 rounded-xl h-12",
-    ].join(" "),
-    input: "text-white placeholder:text-white/30 text-sm",
-    label: "text-white/50 text-xs font-medium",
-  };
+  const inputBase =
+    "w-full bg-black/30 border-2 border-[#07FDC2]/30 rounded-xl px-4 py-3 text-white text-sm " +
+    "placeholder-white/40 outline-none transition-all duration-200 " +
+    "hover:bg-black/40 " +
+    "focus:border-[#07FDC2] focus:bg-black/50 focus:shadow-[0_0_0_3px_rgba(0,217,181,0.1)]";
 
-  const selectStyles = {
-    trigger: [
-      "bg-white/5 border border-white/10 hover:border-white/20",
-      "focus:!border-[#07FDC2] data-[open=true]:!border-[#07FDC2]",
-      "transition-all duration-200 rounded-xl h-12",
-    ].join(" "),
-    value: "text-white text-sm",
-    label: "text-white/50 text-xs font-medium",
-    selectorIcon: "text-white/40",
-    popoverContent: "bg-[#1a1c1c] border border-white/10 rounded-xl",
-    listbox: "p-1",
-    listboxWrapper: "bg-[#1a1c1c]",
-  };
-
-  const selectItemStyles = {
-    base: "text-white data-[hover=true]:bg-white/10 data-[hover=true]:text-white rounded-lg",
-    title: "text-white text-sm",
-  };
+  const inputError =
+    "border-red-500/70 bg-red-500/10 focus:border-red-500 focus:shadow-[0_0_0_3px_rgba(239,68,68,0.1)]";
 
   return (
     <section
@@ -181,7 +156,7 @@ export default function LeadForm() {
         />
       </div>
 
-      <div className="relative z-10 max-w-lg mx-auto">
+      <div className="relative z-10 max-w-2xl mx-auto">
 
         {/* Heading */}
         <motion.div
@@ -211,111 +186,145 @@ export default function LeadForm() {
           transition={{ duration: 0.6, delay: 0.1 }}
         >
           <div
-            className="rounded-2xl p-6 md:p-8"
+            className="rounded-2xl p-6 md:p-10 backdrop-blur-sm"
             style={{
-              backgroundColor: "#1a1c1c",
-              border: `1px solid ${ACCENT}20`,
-              boxShadow: `0 0 60px ${ACCENT}0a, 0 24px 48px rgba(0,0,0,0.4)`,
+              backgroundColor: "rgba(255,255,255,0.05)",
+              border: `1px solid ${ACCENT}33`,
             }}
           >
             <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-5">
 
+              {/* Nome + Telefone — 2 colunas */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
                 {/* Nome */}
-                <Input
-                  label="Seu nome completo"
-                  placeholder="Dr. João Silva"
-                  value={name}
-                  onValueChange={(v) => { setName(v); setErrors((p) => ({ ...p, name: undefined })); }}
-                  isInvalid={!!errors.name}
-                  errorMessage={errors.name}
-                  variant="bordered"
-                  classNames={inputStyles}
-                  startContent={
-                    <Icon icon="solar:user-bold" width={16} className="text-white/30 shrink-0" />
-                  }
-                />
+                <div className="flex flex-col gap-1.5">
+                  <label className="text-white font-semibold text-sm">
+                    Nome e Sobrenome<span className="text-red-500 ml-0.5">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    placeholder='Ex: "Julia Nascimento"'
+                    value={name}
+                    onChange={(e) => {
+                      setName(e.target.value);
+                      setErrors((p) => ({ ...p, name: undefined }));
+                    }}
+                    autoComplete="name"
+                    className={`${inputBase} ${errors.name ? inputError : ""}`}
+                  />
+                  {errors.name && (
+                    <span className="text-red-400 text-xs">{errors.name}</span>
+                  )}
+                </div>
 
                 {/* Telefone */}
-                <Input
-                  label="WhatsApp"
-                  placeholder="(11) 99999-9999"
-                  value={phone}
-                  onValueChange={(v) => {
-                    setPhone(applyPhoneMask(v));
-                    setErrors((p) => ({ ...p, phone: undefined }));
-                  }}
-                  isInvalid={!!errors.phone}
-                  errorMessage={errors.phone}
-                  variant="bordered"
-                  classNames={inputStyles}
-                  startContent={
-                    <Icon icon="solar:phone-bold" width={16} className="text-white/30 shrink-0" />
-                  }
-                />
+                <div className="flex flex-col gap-1.5">
+                  <label className="text-white font-semibold text-sm">
+                    DDD + Whatsapp<span className="text-red-500 ml-0.5">*</span>
+                  </label>
+                  <input
+                    type="tel"
+                    placeholder='Ex: "31999996666"'
+                    value={phone}
+                    onChange={(e) => {
+                      setPhone(applyPhoneMask(e.target.value));
+                      setErrors((p) => ({ ...p, phone: undefined }));
+                    }}
+                    autoComplete="tel"
+                    className={`${inputBase} ${errors.phone ? inputError : ""}`}
+                  />
+                  {errors.phone && (
+                    <span className="text-red-400 text-xs">{errors.phone}</span>
+                  )}
+                </div>
+              </div>
 
-                {/* É especialista? */}
-                <Select
-                  label="Você é médico especialista?"
-                  placeholder="Selecione..."
-                  selectedKeys={isVascular ? [isVascular] : []}
-                  onSelectionChange={(keys) => {
-                    setIsVascular(Array.from(keys)[0] as string);
+              {/* Você é médico especialista? */}
+              <div className="flex flex-col gap-1.5">
+                <label className="text-white font-semibold text-sm">
+                  Você é médico especialista?<span className="text-red-500 ml-0.5">*</span>
+                </label>
+                <select
+                  value={isVascular}
+                  onChange={(e) => {
+                    setIsVascular(e.target.value);
                     setErrors((p) => ({ ...p, is_vascular: undefined }));
                   }}
-                  isInvalid={!!errors.is_vascular}
-                  errorMessage={errors.is_vascular}
-                  variant="bordered"
-                  classNames={selectStyles}
-                  listboxProps={{ itemClasses: selectItemStyles }}
+                  className={`${inputBase} cursor-pointer ${errors.is_vascular ? inputError : ""}`}
+                  style={{
+                    appearance: "none",
+                    WebkitAppearance: "none",
+                    backgroundImage: CHEVRON_SVG,
+                    backgroundRepeat: "no-repeat",
+                    backgroundPosition: "right 1rem center",
+                    backgroundSize: "1.2em",
+                    paddingRight: "3rem",
+                  }}
                 >
-                  <SelectItem key="Sim">Sim, tenho especialidade</SelectItem>
-                  <SelectItem key="Não">Não, sou clínico geral</SelectItem>
-                </Select>
+                  <option value="" style={{ background: "#0a1a1a" }}>Selecione uma opção</option>
+                  <option value="Sim" style={{ background: "#0a1a1a" }}>Sim, tenho especialidade</option>
+                  <option value="Não" style={{ background: "#0a1a1a" }}>Não, sou clínico geral</option>
+                </select>
+                {errors.is_vascular && (
+                  <span className="text-red-400 text-xs">{errors.is_vascular}</span>
+                )}
+              </div>
 
-                {/* Estágio profissional */}
-                <Select
-                  label="Qual seu momento atual?"
-                  placeholder="Selecione..."
-                  selectedKeys={profStage ? [profStage] : []}
-                  onSelectionChange={(keys) => {
-                    setProfStage(Array.from(keys)[0] as string);
+              {/* Qual seu momento atual? */}
+              <div className="flex flex-col gap-1.5">
+                <label className="text-white font-semibold text-sm">
+                  Qual seu momento atual?<span className="text-red-500 ml-0.5">*</span>
+                </label>
+                <select
+                  value={profStage}
+                  onChange={(e) => {
+                    setProfStage(e.target.value);
                     setErrors((p) => ({ ...p, professional_stage: undefined }));
                   }}
-                  isInvalid={!!errors.professional_stage}
-                  errorMessage={errors.professional_stage}
-                  variant="bordered"
-                  classNames={selectStyles}
-                  listboxProps={{ itemClasses: selectItemStyles }}
-                >
-                  <SelectItem key="Estou iniciando minha carreira">Estou iniciando minha carreira</SelectItem>
-                  <SelectItem key="Tenho consultório e quero crescer">Tenho consultório e quero crescer</SelectItem>
-                  <SelectItem key="Quero abrir mais unidades">Quero abrir mais unidades</SelectItem>
-                  <SelectItem key="Clínica consolidada, quero escalar">Clínica consolidada, quero escalar</SelectItem>
-                </Select>
-
-                {/* Submit */}
-                <Button
-                  type="submit"
-                  size="lg"
-                  radius="md"
-                  isLoading={loading}
-                  className="w-full font-black uppercase text-sm tracking-widest h-14 mt-1 transition-all duration-200 hover:scale-[1.02]"
+                  className={`${inputBase} cursor-pointer ${errors.professional_stage ? inputError : ""}`}
                   style={{
-                    backgroundColor: ACCENT,
-                    color: BG,
-                    boxShadow: loading ? "none" : `0 0 32px ${ACCENT}44`,
+                    appearance: "none",
+                    WebkitAppearance: "none",
+                    backgroundImage: CHEVRON_SVG,
+                    backgroundRepeat: "no-repeat",
+                    backgroundPosition: "right 1rem center",
+                    backgroundSize: "1.2em",
+                    paddingRight: "3rem",
                   }}
                 >
-                  {loading ? "Redirecionando..." : "Quero ter mais resultados"}
-                </Button>
+                  <option value="" style={{ background: "#0a1a1a" }}>Selecione uma opção</option>
+                  <option value="Estou iniciando minha carreira" style={{ background: "#0a1a1a" }}>Estou iniciando minha carreira</option>
+                  <option value="Tenho consultório e quero crescer" style={{ background: "#0a1a1a" }}>Tenho consultório e quero crescer</option>
+                  <option value="Quero abrir mais unidades" style={{ background: "#0a1a1a" }}>Quero abrir mais unidades</option>
+                  <option value="Clínica consolidada, quero escalar" style={{ background: "#0a1a1a" }}>Clínica consolidada, quero escalar</option>
+                </select>
+                {errors.professional_stage && (
+                  <span className="text-red-400 text-xs">{errors.professional_stage}</span>
+                )}
+              </div>
 
-                <p className="text-center text-xs text-white/25">
-                  Ao enviar, você concorda em receber contato da nossa equipe.
-                  Sem spam, prometemos.
-                </p>
-              </form>
-            </div>
-          </motion.div>
+              {/* Submit */}
+              <button
+                type="submit"
+                disabled={loading}
+                className="w-full font-black uppercase text-sm tracking-widest h-14 mt-1 rounded-full transition-all duration-200 hover:-translate-y-0.5 disabled:opacity-60 disabled:cursor-not-allowed disabled:transform-none"
+                style={{
+                  backgroundColor: ACCENT,
+                  color: "#1a1a1a",
+                  boxShadow: loading ? "none" : `0 0 32px ${ACCENT}44`,
+                }}
+              >
+                {loading ? "Redirecionando..." : "Ir para o WhatsApp!"}
+              </button>
+
+              <p className="text-center text-xs text-white/25">
+                Ao enviar, você concorda em receber contato da nossa equipe.
+                Sem spam, prometemos.
+              </p>
+            </form>
+          </div>
+        </motion.div>
 
       </div>
     </section>

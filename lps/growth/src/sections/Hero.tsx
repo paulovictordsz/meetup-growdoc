@@ -46,6 +46,9 @@ export default function Hero() {
             alt="GrowDoc"
             className="h-8 md:h-10 w-auto object-contain"
             fetchPriority="high"
+            width="200"
+            height="40"
+            decoding="async"
           />
         </motion.div>
 
