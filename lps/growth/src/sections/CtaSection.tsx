@@ -61,7 +61,7 @@ export default function CtaSection() {
         >
           <Button
             as="a"
-            href="#"
+            href="#formulario"
             size="lg"
             radius="md"
             className="font-black uppercase text-sm md:text-base px-12 h-14 tracking-widest transition-all duration-200 hover:scale-105"
