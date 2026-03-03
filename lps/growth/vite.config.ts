@@ -6,4 +6,15 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   base: '/growth',
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'react-vendor': ['react', 'react-dom'],
+          'heroui': ['@heroui/react'],
+          'motion': ['framer-motion'],
+        },
+      },
+    },
+  },
 })

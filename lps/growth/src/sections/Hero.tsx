@@ -45,6 +45,7 @@ export default function Hero() {
             src="https://bkp.growdoc.com.br/wp-content/uploads/2025/01/GrowDoc-Logo-11.png"
             alt="GrowDoc"
             className="h-8 md:h-10 w-auto object-contain"
+            fetchPriority="high"
           />
         </motion.div>
 
