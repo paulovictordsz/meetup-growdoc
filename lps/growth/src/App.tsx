@@ -5,6 +5,7 @@ import SocialProof from "./sections/SocialProof";
 import LeadForm from "./sections/LeadForm";
 import CtaSection from "./sections/CtaSection";
 import Footer from "./sections/Footer";
+import CookieBanner from "./components/CookieBanner";
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
       <SocialProof />
       <CtaSection />
       <Footer />
+      <CookieBanner />
     </div>
   );
 }
