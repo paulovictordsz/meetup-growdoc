@@ -77,6 +77,8 @@ h1,h2,h3,h4{line-height:1.2;margin-bottom:1rem}
 .cta-large{padding:1.5rem 3rem;font-size:clamp(1rem,2.2vw,1.2rem)}
 @media(max-width:768px){.hero{background-image:url('images/bg-mobile.webp');background-position:center top;background-size:cover;background-repeat:no-repeat;background-attachment:scroll;min-height:100vh;padding:80px 20px 40px 20px}.hero::before{background:linear-gradient(180deg,rgba(0,20,20,0.3) 0%,rgba(10,20,20,0.5) 20%,rgba(10,20,20,0.7) 50%,rgba(15,15,15,0.85) 75%,#0F0F0F 100%)}.hero .container{margin-top:0;padding:20px 0;max-width:100%}.hero-logo{max-width:140px;margin-bottom:20px}.hero-title{font-size:24px;line-height:1.2;max-width:100%;margin-bottom:1.2rem}.hero-subtitle{font-size:15px;max-width:100%;margin-bottom:1.5rem}.hero-badge{margin-bottom:1.5rem;padding:10px 24px}.hero-badge p{font-size:14px}.cta-button-yellow{max-width:100%;padding:16px 24px;font-size:15px;margin-bottom:0}}
 @media(max-width:480px){.container{padding:0 16px}.cta-button{padding:0.9rem 1.8rem;font-size:0.85rem}.hero{padding:60px 16px 30px 16px;min-height:90vh}.hero-title{font-size:22px}.hero-subtitle{font-size:14px}}
+.cookie-overlay{position:fixed;inset:0;z-index:99998;background:rgba(0,0,0,0.6);backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px);opacity:0;pointer-events:none;transition:opacity 0.4s ease}
+.cookie-overlay.visible{opacity:1;pointer-events:all}
 .cookie-banner{position:fixed;bottom:-320px;left:24px;z-index:99999;width:300px;background:rgba(16,18,18,0.98);border:1px solid rgba(7,253,194,0.2);border-radius:20px;padding:22px 20px 18px;transition:bottom 0.6s cubic-bezier(0.34,1.4,0.64,1);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);box-shadow:0 20px 60px rgba(0,0,0,0.8),0 0 0 1px rgba(7,253,194,0.05),inset 0 1px 0 rgba(255,255,255,0.04)}
 .cookie-banner.visible{bottom:24px}
 .cookie-banner__header{display:flex;align-items:center;gap:8px;margin-bottom:10px}
@@ -999,8 +1001,11 @@ h1,h2,h3,h4{line-height:1.2;margin-bottom:1rem}
     })();
     </script>
 
+    <!-- Cookie Overlay -->
+    <div id="cookie-overlay" class="cookie-overlay"></div>
+
     <!-- Cookie Banner -->
-    <div id="cookie-banner" class="cookie-banner" role="dialog" aria-label="Aviso de cookies">
+    <div id="cookie-banner" class="cookie-banner" role="dialog" aria-label="Aviso de cookies" aria-modal="true">
         <div class="cookie-banner__header">
             <span class="cookie-banner__bunny">🐰</span>
             <span class="cookie-banner__title">Controle sua privacidade</span>
@@ -1019,20 +1024,25 @@ h1,h2,h3,h4{line-height:1.2;margin-bottom:1rem}
 
     <script>
     (function() {
-        var banner = document.getElementById('cookie-banner');
-        if (!banner) return;
-        if (localStorage.getItem('cookie_consent')) return;
+        var banner  = document.getElementById('cookie-banner');
+        var overlay = document.getElementById('cookie-overlay');
+        if (!banner || localStorage.getItem('cookie_consent')) return;
 
-        setTimeout(function() { banner.classList.add('visible'); }, 1800);
+        setTimeout(function() {
+            banner.classList.add('visible');
+            overlay.classList.add('visible');
+            document.body.style.overflow = 'hidden';
+        }, 1800);
 
-        document.getElementById('cookie-accept').addEventListener('click', function() {
-            localStorage.setItem('cookie_consent', 'accepted');
+        function dismiss(choice) {
+            localStorage.setItem('cookie_consent', choice);
             banner.classList.remove('visible');
-        });
-        document.getElementById('cookie-reject').addEventListener('click', function() {
-            localStorage.setItem('cookie_consent', 'rejected');
-            banner.classList.remove('visible');
-        });
+            overlay.classList.remove('visible');
+            document.body.style.overflow = '';
+        }
+
+        document.getElementById('cookie-accept').addEventListener('click', function() { dismiss('accepted'); });
+        document.getElementById('cookie-reject').addEventListener('click', function() { dismiss('rejected'); });
     })();
     </script>
 

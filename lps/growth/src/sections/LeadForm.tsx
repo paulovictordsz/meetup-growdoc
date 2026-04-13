@@ -305,21 +305,7 @@ export default function LeadForm() {
                 )}
               </div>
 
-              {/* Submit */}
-              <button
-                type="submit"
-                disabled={loading || !lgpdConsent}
-                className="w-full font-black uppercase text-sm tracking-widest h-14 mt-1 rounded-full transition-all duration-200 hover:-translate-y-0.5 disabled:opacity-60 disabled:cursor-not-allowed disabled:transform-none"
-                style={{
-                  backgroundColor: ACCENT,
-                  color: "#1a1a1a",
-                  boxShadow: loading ? "none" : `0 0 32px ${ACCENT}44`,
-                }}
-              >
-                {loading ? "Redirecionando..." : "Ir para o WhatsApp!"}
-              </button>
-
-              <div className="flex items-start gap-2 mt-2">
+              <div className="flex items-start gap-2 mt-1">
                 <input
                   type="checkbox"
                   id="lgpd_consent"
@@ -340,6 +326,20 @@ export default function LeadForm() {
                   {" "}e autorizo o uso dos meus dados para contato via WhatsApp.
                 </label>
               </div>
+
+              {/* Submit */}
+              <button
+                type="submit"
+                disabled={loading || !lgpdConsent}
+                className="w-full font-black uppercase text-sm tracking-widest h-14 mt-1 rounded-full transition-all duration-200 hover:-translate-y-0.5 disabled:opacity-60 disabled:cursor-not-allowed disabled:transform-none"
+                style={{
+                  backgroundColor: ACCENT,
+                  color: "#1a1a1a",
+                  boxShadow: loading ? "none" : `0 0 32px ${ACCENT}44`,
+                }}
+              >
+                {loading ? "Redirecionando..." : "Ir para o WhatsApp!"}
+              </button>
             </form>
           </div>
         </motion.div>
