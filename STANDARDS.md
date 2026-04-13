@@ -15,6 +15,7 @@ Leia este arquivo antes de começar qualquer LP nova.
 6. [Formulários](#6-formulários)
 7. [Seções mínimas de uma LP](#7-seções-mínimas-de-uma-lp)
 8. [Deploy](#8-deploy)
+9. [LGPD](#9-lgpd)
 
 ---
 
@@ -305,7 +306,7 @@ TopBanner  →  Hero  →  LeadForm  →  [seções de conteúdo]  →  Footer
 
 **LeadForm:** Acima do dobramento ou logo após o hero. ID `formulario` no elemento (`id="formulario"`). Campos mínimos: nome, telefone (com máscara), 2 perguntas qualificadoras.
 
-**Footer:** Logo + copyright. Separador com gradiente accent. `© {new Date().getFullYear()} GrowDoc.`
+**Footer:** Logo + copyright + link "Política de Privacidade" → `https://privacidade.growdoc.com.br/`. Separador com gradiente accent. `© {new Date().getFullYear()} GrowDoc.`
 
 ### Efeito glow (padrão estético)
 
@@ -348,3 +349,87 @@ Os assets gerados pelo Vite têm hashes no nome e são imutáveis — devem ter 
 /<nome>/assets/*
   Cache-Control: public, max-age=31536000, immutable
 ```
+
+---
+
+## 9. LGPD
+
+A central de privacidade da GrowDoc está em **`https://privacidade.growdoc.com.br/`**. Toda LP que coleta dados pessoais deve:
+
+### 9.1 Checkbox de consentimento no formulário (obrigatório)
+
+O botão de submit deve ficar **desabilitado** até o usuário marcar o checkbox. Não usar `required` nativo do browser — controlar via JS/estado.
+
+**HTML estático:**
+```html
+<div class="form-group form-group--consent">
+  <label class="consent-label">
+    <input type="checkbox" id="lgpd_consent" name="lgpd_consent">
+    Li e concordo com a
+    <a href="https://privacidade.growdoc.com.br/" target="_blank" rel="noopener">
+      Política de Privacidade
+    </a>
+    e autorizo o uso dos meus dados para contato via WhatsApp.
+  </label>
+</div>
+```
+
+Lógica JS (dentro da função `init()`):
+```js
+const lgpdCheckbox = document.getElementById('lgpd_consent');
+const submitBtn = form.querySelector('.submit-button');
+// botão começa disabled no HTML: <button ... disabled>
+lgpdCheckbox.addEventListener('change', function() {
+  submitBtn.disabled = !this.checked;
+});
+```
+
+**React:**
+```tsx
+const [lgpdConsent, setLgpdConsent] = useState(false);
+
+// No JSX, antes do botão de submit:
+<div className="flex items-start gap-2 mt-2">
+  <input
+    type="checkbox"
+    id="lgpd_consent"
+    checked={lgpdConsent}
+    onChange={e => setLgpdConsent(e.target.checked)}
+    className="mt-0.5 accent-[#07FDC2] cursor-pointer flex-shrink-0"
+  />
+  <label htmlFor="lgpd_consent" className="text-xs text-white/50 leading-snug cursor-pointer">
+    Li e concordo com a{" "}
+    <a href="https://privacidade.growdoc.com.br/" target="_blank" rel="noopener"
+       className="underline text-[#07FDC2]/70 hover:text-[#07FDC2] transition-colors">
+      Política de Privacidade
+    </a>
+    {" "}e autorizo o uso dos meus dados para contato via WhatsApp.
+  </label>
+</div>
+
+// No botão:
+<button disabled={loading || !lgpdConsent} ...>
+```
+
+### 9.2 Link no footer (obrigatório)
+
+**HTML estático:**
+```html
+<p>© 2026 GROWDOC · <a href="https://privacidade.growdoc.com.br/" target="_blank" rel="noopener" class="footer-privacy-link">Política de Privacidade</a></p>
+```
+
+**React:**
+```tsx
+<a href="https://privacidade.growdoc.com.br/" target="_blank" rel="noopener"
+   className="text-xs text-gray-400 hover:text-gray-300 underline transition-colors">
+  Política de Privacidade
+</a>
+```
+
+### 9.3 Meta Pixel / cookies de rastreamento
+
+O Pixel carrega normalmente sem banner de consentimento (base legal: legítimo interesse). Caso a política mude e seja necessário consentimento explícito para cookies, implementar banner antes do `initPixel()` e persistir escolha em `localStorage('cookie_consent')`.
+
+### 9.4 Estilos (HTML estático)
+
+Os estilos de `.form-group--consent`, `.consent-label` e `.footer-privacy-link` estão em `lps/meetup/style.css`. Copie o bloco comentado como `/* LGPD Consent */` para o `style.css` da nova LP.

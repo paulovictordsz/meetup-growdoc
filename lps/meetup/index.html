@@ -47,7 +47,7 @@
 @font-face{font-family:'Axiforma';src:url('font/Axiforma-Medium.woff2') format('woff2'),url('font/Axiforma-Medium.woff') format('woff'),url('font/Axiforma-Medium.ttf') format('truetype');font-weight:500;font-style:normal;font-display:swap}
 @font-face{font-family:'Axiforma';src:url('font/Axiforma-SemiBold.woff2') format('woff2'),url('font/Axiforma-SemiBold.woff') format('woff'),url('font/Axiforma-SemiBold.ttf') format('truetype');font-weight:600;font-style:normal;font-display:swap}
 @font-face{font-family:'Axiforma';src:url('font/Axiforma-Bold.woff2') format('woff2'),url('font/Axiforma-Bold.woff') format('woff'),url('font/Axiforma-Bold.ttf') format('truetype');font-weight:700;font-style:normal;font-display:swap}
-*{margin:0;padding:0;box-sizing:border-box}
+*{margin:0;padding:0;box-sizing:border-box}.consent-label a{color:rgba(7,253,194,0.75);text-decoration:underline}.consent-label a:hover{color:#07FDC2}
 :root{--primary-color:#00D9B5;--primary-dark:#00B494;--secondary-color:#1a1a1a;--text-color:#ffffff;--text-secondary:#b0b0b0;--gradient-overlay:linear-gradient(135deg,rgba(0,50,60,0.85),rgba(10,30,40,0.9))}
 html{scroll-padding-top:20px}
 body{font-family:'Axiforma',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,sans-serif;line-height:1.6;color:var(--text-color);background-color:#141616;overflow-x:hidden}
@@ -962,6 +962,15 @@ h1,h2,h3,h4{line-height:1.2;margin-bottom:1rem}
                 professionalStageSelect.addEventListener('change', () => clearError('professional_stage'));
             }
 
+            // LGPD: habilita o botão somente quando o checkbox estiver marcado
+            const lgpdCheckbox = document.getElementById('lgpd_consent');
+            const submitBtn = form.querySelector('.submit-button');
+            if (lgpdCheckbox && submitBtn) {
+                lgpdCheckbox.addEventListener('change', function() {
+                    submitBtn.disabled = !this.checked;
+                });
+            }
+
             console.log('✅ Formulário UTM inicializado com sucesso');
         }
 
@@ -971,6 +980,38 @@ h1,h2,h3,h4{line-height:1.2;margin-bottom:1rem}
             initUTMForm();
         }
 
+    })();
+    </script>
+
+    <!-- Cookie Banner -->
+    <div id="cookie-banner" class="cookie-banner" aria-live="polite">
+        <span class="cookie-banner__bunny">🐰</span>
+        <p class="cookie-banner__text">
+            Usamos cookies para personalizar anúncios e melhorar sua experiência.
+            <a href="https://privacidade.growdoc.com.br/" target="_blank" rel="noopener">Saiba mais</a>
+        </p>
+        <div class="cookie-banner__actions">
+            <button id="cookie-reject" class="cookie-btn cookie-btn--reject">Recusar</button>
+            <button id="cookie-accept" class="cookie-btn cookie-btn--accept">Aceitar 🍪</button>
+        </div>
+    </div>
+
+    <script>
+    (function() {
+        var banner = document.getElementById('cookie-banner');
+        if (!banner) return;
+        if (localStorage.getItem('cookie_consent')) return;
+
+        setTimeout(function() { banner.classList.add('visible'); }, 1800);
+
+        document.getElementById('cookie-accept').addEventListener('click', function() {
+            localStorage.setItem('cookie_consent', 'accepted');
+            banner.classList.remove('visible');
+        });
+        document.getElementById('cookie-reject').addEventListener('click', function() {
+            localStorage.setItem('cookie_consent', 'rejected');
+            banner.classList.remove('visible');
+        });
     })();
     </script>
 
