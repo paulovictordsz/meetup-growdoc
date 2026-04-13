@@ -294,8 +294,20 @@ h1,h2,h3,h4{line-height:1.2;margin-bottom:1rem}
                 <input type="hidden" name="gclid" value="">
                 <input type="hidden" name="wbraid" value="">
 
+                <!-- Consentimento LGPD -->
+                <div class="form-group form-group--consent">
+                    <label class="consent-label">
+                        <input type="checkbox" id="lgpd_consent" name="lgpd_consent">
+                        Li e concordo com a
+                        <a href="https://privacidade.growdoc.com.br/" target="_blank" rel="noopener">
+                            Política de Privacidade
+                        </a>
+                        e autorizo o uso dos meus dados para contato via WhatsApp.
+                    </label>
+                </div>
+
                 <!-- Botão de Envio -->
-                <button type="submit" class="submit-button">
+                <button type="submit" class="submit-button" disabled>
                     Ir para o WhatsApp!
                 </button>
 
@@ -659,7 +671,7 @@ h1,h2,h3,h4{line-height:1.2;margin-bottom:1rem}
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>2026 © GROWDOC - TODOS OS DIREITOS RESERVADOS</p>
+            <p>2026 © GROWDOC - TODOS OS DIREITOS RESERVADOS · <a href="https://privacidade.growdoc.com.br/" target="_blank" rel="noopener" class="footer-privacy-link">Política de Privacidade</a></p>
         </div>
     </footer>
 

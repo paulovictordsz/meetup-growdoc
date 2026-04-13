@@ -254,7 +254,10 @@ window.addEventListener('load', function() {
 <link rel="preload" href="URL_DO_LOGO" as="image" fetchpriority="high">
 
 <!-- Critical CSS inline — evita flash branco antes do React montar -->
-<style>*{margin:0;padding:0;box-sizing:border-box}body{background:#131515;color:#fff;font-family:system-ui,-apple-system,sans-serif}#root{min-height:100dvh}</style>
+<!-- ⚠️ NÃO usar *{margin:0;padding:0} aqui! Tailwind v4 usa @layer utilities,
+     e estilos fora de layer sempre vencem estilos dentro de layer (CSS Cascade Layers),
+     o que faria o reset sobrescrever TODOS os utilitários de spacing do Tailwind. -->
+<style>body{background:#131515}#root{min-height:100dvh}</style>
 
 <!-- Meta Pixel após window load (não bloqueia LCP) -->
 <script>window.addEventListener('load', function() { /* pixel */ });</script>

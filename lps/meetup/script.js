@@ -632,6 +632,15 @@ if (prefersReducedMotion) {
         const professionalStageInput = form.querySelector('select[name="professional_stage"]');
         if (professionalStageInput) professionalStageInput.addEventListener('change', () => clearError('professional_stage'));
 
+        // LGPD: habilita o botão apenas quando o checkbox estiver marcado
+        const lgpdCheckbox = document.getElementById('lgpd_consent');
+        const submitBtn = form.querySelector('.submit-button');
+        if (lgpdCheckbox && submitBtn) {
+            lgpdCheckbox.addEventListener('change', function() {
+                submitBtn.disabled = !this.checked;
+            });
+        }
+
         console.log('✅ Formulário inicializado com sucesso');
     }
 

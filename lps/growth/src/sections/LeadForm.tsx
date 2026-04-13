@@ -93,6 +93,7 @@ export default function LeadForm() {
   const [errors, setErrors]       = useState<FormErrors>({});
   const [loading, setLoading]     = useState(false);
   const [utmParams, setUtmParams] = useState<UTMParams | null>(null);
+  const [lgpdConsent, setLgpdConsent] = useState(false);
 
   useEffect(() => { setUtmParams(captureUTM()); }, []);
 
@@ -307,7 +308,7 @@ export default function LeadForm() {
               {/* Submit */}
               <button
                 type="submit"
-                disabled={loading}
+                disabled={loading || !lgpdConsent}
                 className="w-full font-black uppercase text-sm tracking-widest h-14 mt-1 rounded-full transition-all duration-200 hover:-translate-y-0.5 disabled:opacity-60 disabled:cursor-not-allowed disabled:transform-none"
                 style={{
                   backgroundColor: ACCENT,
@@ -318,10 +319,27 @@ export default function LeadForm() {
                 {loading ? "Redirecionando..." : "Ir para o WhatsApp!"}
               </button>
 
-              <p className="text-center text-xs text-white/25">
-                Ao enviar, você concorda em receber contato da nossa equipe.
-                Sem spam, prometemos.
-              </p>
+              <div className="flex items-start gap-2 mt-2">
+                <input
+                  type="checkbox"
+                  id="lgpd_consent"
+                  checked={lgpdConsent}
+                  onChange={e => setLgpdConsent(e.target.checked)}
+                  className="mt-0.5 accent-[#07FDC2] cursor-pointer flex-shrink-0"
+                />
+                <label htmlFor="lgpd_consent" className="text-xs text-white/50 leading-snug cursor-pointer">
+                  Li e concordo com a{" "}
+                  <a
+                    href="https://privacidade.growdoc.com.br/"
+                    target="_blank"
+                    rel="noopener"
+                    className="underline text-[#07FDC2]/70 hover:text-[#07FDC2] transition-colors"
+                  >
+                    Política de Privacidade
+                  </a>
+                  {" "}e autorizo o uso dos meus dados para contato via WhatsApp.
+                </label>
+              </div>
             </form>
           </div>
         </motion.div>

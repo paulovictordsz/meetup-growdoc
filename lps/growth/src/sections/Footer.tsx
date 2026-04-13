@@ -15,6 +15,14 @@ export default function Footer() {
         <p className="text-xs text-gray-400 font-medium">
           © {new Date().getFullYear()} GrowDoc. Todos os direitos reservados.
         </p>
+        <a
+          href="https://privacidade.growdoc.com.br/"
+          target="_blank"
+          rel="noopener"
+          className="text-xs text-gray-400 hover:text-gray-300 underline transition-colors"
+        >
+          Política de Privacidade
+        </a>
       </div>
     </footer>
   );

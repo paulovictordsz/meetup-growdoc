@@ -720,6 +720,50 @@ select.form-input option {
     transform: none;
 }
 
+/* LGPD Consent */
+.form-group--consent {
+    margin-top: 0.25rem;
+}
+
+.consent-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.5);
+    line-height: 1.4;
+    cursor: pointer;
+}
+
+.consent-label input[type="checkbox"] {
+    margin-top: 0.15rem;
+    flex-shrink: 0;
+    accent-color: var(--primary-color);
+    cursor: pointer;
+}
+
+.consent-label a {
+    color: rgba(7, 253, 194, 0.7);
+    text-decoration: underline;
+    transition: color 0.2s;
+}
+
+.consent-label a:hover {
+    color: var(--primary-color);
+}
+
+/* Footer privacy link */
+.footer-privacy-link {
+    color: inherit;
+    text-decoration: underline;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+.footer-privacy-link:hover {
+    opacity: 1;
+}
+
 /* Loading State */
 .form-loading {
     display: none;
