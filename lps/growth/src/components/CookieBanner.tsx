@@ -31,8 +31,6 @@ export default function CookieBanner() {
           inset: 0,
           zIndex: 99998,
           background: "rgba(0,0,0,0.6)",
-          backdropFilter: "blur(2px)",
-          WebkitBackdropFilter: "blur(2px)",
           pointerEvents: visible ? "all" : "none",
           opacity: visible ? 1 : 0,
           transition: "opacity 0.4s ease",
